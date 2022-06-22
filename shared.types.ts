@@ -10,7 +10,8 @@ export type RootStackParamList = {
       }
     | undefined;
   CreateAccount: undefined;
-  Detail: undefined;
+  ProfileDetail: undefined;
+  Upload: undefined;
   TabNav: undefined;
 };
 

@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 import { StackScreenProps } from "../navigators/LoggedOutNav";
 
-const Detail: React.FC<StackScreenProps> = () => {
+const ProfileDetail: React.FC<StackScreenProps> = () => {
   return (
     <View
       style={{
@@ -11,8 +11,8 @@ const Detail: React.FC<StackScreenProps> = () => {
         justifyContent: "center",
       }}
     >
-      <Text style={{ color: "white" }}>Detail</Text>
+      <Text style={{ color: "white" }}>ProfileDetail</Text>
     </View>
   );
 };
-export default Detail;
+export default ProfileDetail;

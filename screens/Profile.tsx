@@ -1,11 +1,19 @@
 import { useReactiveVar } from "@apollo/client";
 import React, { useEffect } from "react";
-import { Text, View } from "react-native";
-import { isLoggedInVar } from "../apollo";
+import { Text, TouchableOpacity, View } from "react-native";
+import { isLoggedInVar, logUserOut } from "../apollo";
+import useUser from "../libs/useUser";
 import { StackScreenProps } from "../navigators/LoggedOutNav";
 
-const Profile: React.FC<StackScreenProps> = ({ navigation }) => {
+const Profile: React.FC<StackScreenProps> = ({ navigation, route }) => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
+  const { user } = useUser();
+
+  useEffect(() => {
+    navigation.setOptions({
+      title: `${user?.username}' Profile`,
+    });
+  }, []);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -24,7 +32,9 @@ const Profile: React.FC<StackScreenProps> = ({ navigation }) => {
         justifyContent: "center",
       }}
     >
-      <Text style={{ color: "white" }}>Profile</Text>
+      <TouchableOpacity onPress={() => logUserOut()}>
+        <Text style={{ color: "white" }}>Profile</Text>
+      </TouchableOpacity>
     </View>
   );
 };

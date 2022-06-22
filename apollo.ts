@@ -6,6 +6,7 @@ import {
 } from "@apollo/client";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { setContext } from "@apollo/client/link/context";
+import { offsetLimitPagination } from "@apollo/client/utilities";
 
 export const TOKEN = "token";
 const LOGGED_IN = "loggedIn";
@@ -42,9 +43,20 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+export const cache = new InMemoryCache({
+  // apollo의 타입을 설정
+  typePolicies: {
+    Query: {
+      fields: {
+        seeCoffeeShops: offsetLimitPagination(),
+      },
+    },
+  },
+});
+
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+  cache,
 });
 
 export default client;

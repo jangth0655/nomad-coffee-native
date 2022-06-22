@@ -1,10 +1,11 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import Detail from "../screens/Detail";
+
 import Home from "../screens/Home";
 import Profile from "../screens/Profile";
 import Search from "../screens/Search";
 import { FontAwesome } from "@expo/vector-icons";
+import ProfileDetail from "../screens/ProfileDetail";
 
 const Stack = createNativeStackNavigator();
 
@@ -39,8 +40,10 @@ const StackNavFactory: React.FC<StackNavFactoryProp> = ({ screenName }) => {
         <Stack.Screen name="Search" component={Search} />
       ) : null}
 
-      <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name="Detail" component={Detail} />
+      {screenName === "Profile" ? (
+        <Stack.Screen name="Profile" component={Profile} />
+      ) : null}
+      <Stack.Screen name="ProfileDetail" component={ProfileDetail} />
     </Stack.Navigator>
   );
 };

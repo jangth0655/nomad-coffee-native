@@ -5,6 +5,7 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import LogIn from "../screens/Login";
 import { RootStackParamList } from "../shared.types";
 import TabNav from "./TabNav";
+import Upload from "../screens/Upload";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 export type StackScreenProps = NativeStackScreenProps<RootStackParamList, any>;
@@ -30,6 +31,7 @@ const LoggedOutNav = () => {
       />
       <Stack.Screen name="LogIn" component={LogIn} />
       <Stack.Screen name="CreateAccount" component={CreateAccount} />
+      <Stack.Screen name="Upload" component={Upload} />
     </Stack.Navigator>
   );
 };
