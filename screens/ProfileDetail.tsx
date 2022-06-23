@@ -1,18 +1,22 @@
-import { Text, View } from "react-native";
+import React from "react";
+import { Image, Text, View } from "react-native";
 import { StackScreenProps } from "../navigators/LoggedOutNav";
 
-const ProfileDetail: React.FC<StackScreenProps> = () => {
+const ProfileDetail: React.FC<StackScreenProps> = ({ route }) => {
+  const username = route.params && route.params.username;
+
   return (
     <View
       style={{
-        backgroundColor: "black",
         flex: 1,
-        alignItems: "center",
+        backgroundColor: "black",
         justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      <Text style={{ color: "white" }}>ProfileDetail</Text>
+      <Text style={{ color: "white" }}>username</Text>
     </View>
   );
 };
+
 export default ProfileDetail;

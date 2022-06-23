@@ -10,9 +10,10 @@ export type RootStackParamList = {
       }
     | undefined;
   CreateAccount: undefined;
-  ProfileDetail: undefined;
+  SearchCoffeeShop: { id: number } | undefined;
   Upload: undefined;
   TabNav: undefined;
+  ProfileDetail: { username?: string } | undefined;
 };
 
 export type TabParamList = {

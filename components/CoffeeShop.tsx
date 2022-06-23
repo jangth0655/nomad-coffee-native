@@ -83,7 +83,9 @@ const CoffeeShopList: React.FC<CoffeeShopProps> = ({
 }) => {
   const { width, height } = useWindowDimensions();
   const onProfile = () => {
-    navigation?.navigate("ProfileDetail");
+    navigation?.navigate("ProfileDetail", {
+      username: user?.username,
+    });
   };
 
   const CategoryName = (slug?: string) => {

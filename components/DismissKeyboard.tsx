@@ -1,11 +1,7 @@
 import React from "react";
 import { Keyboard, Platform, TouchableWithoutFeedback } from "react-native";
 
-interface DismissKeyboardProp {
-  children: React.ReactNode;
-}
-
-const DismissKeyboard: React.FC<DismissKeyboardProp> = ({ children }) => {
+const DismissKeyboard: React.FC = ({ children }) => {
   const dismissKeyboard = () => {
     Keyboard.dismiss();
   };
